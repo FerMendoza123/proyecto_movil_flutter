@@ -1,8 +1,8 @@
-import '../flutter_flow/flutter_flow_drop_down.dart';
+/*import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';*/
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -56,7 +56,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Online Library',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).title2.override(       /*Sustituir por otra clase de estilos*/
             fontFamily: 'Outfit',
             color: Color(0xFF14181B),
             fontSize: 28,
@@ -66,7 +66,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
         actions: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
-            child: FlutterFlowIconButton(
+            child: FlutterFlowIconButton(                            /* Sustituir por otro widget de icono*/
               borderColor: Colors.transparent,
               borderRadius: 30,
               buttonSize: 48,
@@ -141,7 +141,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'Título:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(         /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -178,7 +178,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(      /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -195,7 +195,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'Autor:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(         /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -232,7 +232,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(              /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -249,7 +249,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'ISBN:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(               /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -286,7 +286,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(                  /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -303,7 +303,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'Editorial:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(                 /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -340,7 +340,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(               /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -357,7 +357,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'Año:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(                /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -394,7 +394,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(                  /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -412,7 +412,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         decoration: InputDecoration(
                           labelText: 'Idioma:',
                           hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(
+                          FlutterFlowTheme.of(context).bodyText2.override(                  /*Sustituir por otra clase de estilos*/
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
@@ -449,7 +449,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyText1.override(                   /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -461,14 +461,14 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: FlutterFlowDropDown<String>(
+                      child: FlutterFlowDropDown<String>(                                 /*Sustituir por otro widget de menu dropdown*/
                         options: ['Científico', 'Ciencia Ficción', 'Romance'],
                         onChanged: (val) =>
                             setState(() => teamSelectValue = val),
                         width: double.infinity,
                         height: 60,
                         textStyle:
-                        FlutterFlowTheme.of(context).bodyText1.override(
+                        FlutterFlowTheme.of(context).bodyText1.override(                           /*Sustituir por otra clase de estilos*/
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -493,21 +493,21 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'Registrar',
-                    options: FFButtonOptions(
-                      width: 270,
-                      height: 50,
-                      color: Color(0xFF4B39EF),
-                      textStyle:
-                      FlutterFlowTheme.of(context).subtitle1.override(
-                        fontFamily: 'Outfit',
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal,
+                  child: FFButtonWidget(                                                     /*Sustituir por otro widget de boton*/
+                    onPressed: () {                                                         //
+                      print('Button pressed ...');                                          //
+                    },                                                                      //
+                    text: 'Registrar',                                                      //
+                    options: FFButtonOptions(                                               //
+                      width: 270,                                                           //
+                      height: 50,                                                           //
+                      color: Color(0xFF4B39EF),                                             //
+                      textStyle:                                                            //
+                      FlutterFlowTheme.of(context).subtitle1.override(                       /*Sustituir por otra clase de estilos*/
+                        fontFamily: 'Outfit',                                               //
+                        color: Colors.white,                                                //
+                        fontSize: 18,                                                       //
+                        fontWeight: FontWeight.normal,                                      //
                       ),
                       elevation: 3,
                       borderSide: BorderSide(
