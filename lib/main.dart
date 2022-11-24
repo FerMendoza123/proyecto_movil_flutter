@@ -6,6 +6,26 @@ import '../flutter_flow/flutter_flow_widgets.dart';*/
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+void main()
+{
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title: "Book catalogue",
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const RegistroWidget(),
+    );
+  }
+}
+
 class RegistroWidget extends StatefulWidget {
   const RegistroWidget({Key? key}) : super(key: key);
 
@@ -56,17 +76,19 @@ class _RegistroWidgetState extends State<RegistroWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Online Library',
-          style: FlutterFlowTheme.of(context).title2.override(       /*Sustituir por otra clase de estilos*/
+          /*Sustituir por otra clase de estilos*/
+          /*style:
+           FlutterFlowTheme.of(context).title2.override(
             fontFamily: 'Outfit',
             color: Color(0xFF14181B),
             fontSize: 28,
             fontWeight: FontWeight.normal,
-          ),
+          ),*/
         ),
-        actions: [
+        /*actions: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 0, 12, 0),
-            child: FlutterFlowIconButton(                            /* Sustituir por otro widget de icono*/
+            child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
               borderRadius: 30,
               buttonSize: 48,
@@ -80,7 +102,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
               },
             ),
           ),
-        ],
+        ],*/
         centerTitle: false,
         elevation: 0,
       ),
@@ -140,13 +162,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Título:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(         /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(         *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -178,12 +200,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(      /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(      *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -194,13 +216,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Autor:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(         /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(         *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -232,12 +254,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(              /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(              *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -248,13 +270,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'ISBN:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(               /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(               *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -286,12 +308,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(                  /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(                  *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -302,13 +324,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Editorial:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(                 /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(                 *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -340,12 +362,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(               /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(               *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -356,13 +378,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Año:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(                /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(                *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -394,12 +416,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(                  /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(                  *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                         keyboardType: TextInputType.datetime,
                       ),
@@ -411,13 +433,13 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Idioma:',
-                          hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(                  /*Sustituir por otra clase de estilos*/
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(                  *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                          ),
+                          ),*/
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFF1F4F8),
@@ -449,26 +471,26 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           contentPadding:
                           EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1.override(                   /*Sustituir por otra clase de estilos*/
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(                   *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                        ),
+                        ),*/
                         textAlign: TextAlign.start,
                         keyboardType: TextInputType.datetime,
                       ),
                     ),
-                    Padding(
+                    /*Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: FlutterFlowDropDown<String>(                                 /*Sustituir por otro widget de menu dropdown*/
+                      child: FlutterFlowDropDown<String>(                                 *//*Sustituir por otro widget de menu dropdown*//*
                         options: ['Científico', 'Ciencia Ficción', 'Romance'],
                         onChanged: (val) =>
                             setState(() => teamSelectValue = val),
                         width: double.infinity,
                         height: 60,
                         textStyle:
-                        FlutterFlowTheme.of(context).bodyText1.override(                           /*Sustituir por otra clase de estilos*/
+                        FlutterFlowTheme.of(context).bodyText1.override(                           *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
                           fontSize: 14,
@@ -488,12 +510,12 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         margin: EdgeInsetsDirectional.fromSTEB(24, 4, 12, 4),
                         hidesUnderline: true,
                       ),
-                    ),
+                    ),*/
                   ],
                 ),
-                Padding(
+                /*Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: FFButtonWidget(                                                     /*Sustituir por otro widget de boton*/
+                  child: FFButtonWidget(                                                     *//*Sustituir por otro widget de boton*//*
                     onPressed: () {                                                         //
                       print('Button pressed ...');                                          //
                     },                                                                      //
@@ -503,7 +525,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                       height: 50,                                                           //
                       color: Color(0xFF4B39EF),                                             //
                       textStyle:                                                            //
-                      FlutterFlowTheme.of(context).subtitle1.override(                       /*Sustituir por otra clase de estilos*/
+                      FlutterFlowTheme.of(context).subtitle1.override(                       *//*Sustituir por otra clase de estilos*//*
                         fontFamily: 'Outfit',                                               //
                         color: Colors.white,                                                //
                         fontSize: 18,                                                       //
@@ -516,7 +538,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                       ),
                     ),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),
