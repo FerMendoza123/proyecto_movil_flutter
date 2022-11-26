@@ -7,6 +7,8 @@ import 'package:book_catalogue_crud/dropDown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'customButton.dart';
+
 void main()
 {
   runApp(const MyApp());
@@ -501,39 +503,20 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           borderRadius: 8,
                           margin: EdgeInsetsDirectional.fromSTEB(24, 4, 12, 4),
                           hidesUnderline: true),
-                      /*FlutterFlowDropDown<String>(                                 *//*Sustituir por otro widget de menu dropdown*//*
-                        options: ['Científico', 'Ciencia Ficción', 'Romance'],
-                        onChanged: (val) =>
-                            setState(() => teamSelectValue = val),
-                        width: double.infinity,
-                        height: 60,
-                        textStyle:
-                        FlutterFlowTheme.of(context).bodyText1.override(                           *//*Sustituir por otra clase de estilos*//*
-                          fontFamily: 'Outfit',
-                          color: Color(0xFF14181B),
-                          fontSize: 14,
-                          fontWeight: FontWeight.normal,
-                        ),
-                        hintText: 'Género',
-                        icon: Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Color(0xFF57636C),
-                          size: 15,
-                        ),
-                        fillColor: Colors.white,
-                        elevation: 2,
-                        borderColor: Color(0xFFF1F4F8),
-                        borderWidth: 2,
-                        borderRadius: 8,
-                        margin: EdgeInsetsDirectional.fromSTEB(24, 4, 12, 4),
-                        hidesUnderline: true,
-                      ),*/
                     ),
                   ],
                 ),
-                /*Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: FFButtonWidget(                                                     *//*Sustituir por otro widget de boton*//*
+                  child: CustomButton(
+                    width: 270,
+                    height: 50,
+                    color: Color(0xFF4B39EF),
+                    elevation: 3,
+                    text: "Registrar",
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                  ),/*FFButtonWidget(                                                     *//*Sustituir por otro widget de boton*//*
                     onPressed: () {                                                         //
                       print('Button pressed ...');                                          //
                     },                                                                      //
@@ -555,8 +538,8 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         width: 1,
                       ),
                     ),
-                  ),
-                ),*/
+                  ),*/
+                ),
               ],
             ),
           ),
