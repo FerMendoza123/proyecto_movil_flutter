@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';*/
+import 'package:book_catalogue_crud/dropDown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -481,9 +482,26 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         keyboardType: TextInputType.datetime,
                       ),
                     ),
-                    /*Padding(
+                    Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: FlutterFlowDropDown<String>(                                 *//*Sustituir por otro widget de menu dropdown*//*
+                      child: DropDown(
+                          options: ['Científico', 'Ciencia Ficción', 'Romance'],
+                          width: double.infinity,
+                          height: 60,
+                          hintText: 'Género',
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Color(0xFF57636C),
+                            size: 15,
+                          ),
+                          fillColor: Colors.white,
+                          elevation: 2,
+                          borderColor: Color(0xFFF1F4F8),
+                          borderWidth: 2,
+                          borderRadius: 8,
+                          margin: EdgeInsetsDirectional.fromSTEB(24, 4, 12, 4),
+                          hidesUnderline: true),
+                      /*FlutterFlowDropDown<String>(                                 *//*Sustituir por otro widget de menu dropdown*//*
                         options: ['Científico', 'Ciencia Ficción', 'Romance'],
                         onChanged: (val) =>
                             setState(() => teamSelectValue = val),
@@ -509,8 +527,8 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         borderRadius: 8,
                         margin: EdgeInsetsDirectional.fromSTEB(24, 4, 12, 4),
                         hidesUnderline: true,
-                      ),
-                    ),*/
+                      ),*/
+                    ),
                   ],
                 ),
                 /*Padding(
