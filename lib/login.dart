@@ -2,6 +2,8 @@
 ///import '../flutter_flow/flutter_flow_theme.dart';
 ///import '../flutter_flow/flutter_flow_util.dart';
 ///import '../flutter_flow/flutter_flow_widgets.dart';
+import 'dart:html';
+import './customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:book_catalogue_crud/main.dart';
@@ -43,6 +45,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Online Library',
+
           /*
           style: FlutterFlowTheme.of(context).title2.override(
             fontFamily: 'Outfit',
@@ -98,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                               'assets/images/emptyState@2x.png',
                             ).image,
                           ),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 6,
                               color: Color(0x3A000000),
@@ -108,7 +111,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+                          padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(120),
                             child: Image.asset(
@@ -122,13 +125,20 @@ class _LoginWidgetState extends State<LoginWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 206, 16, 0),
+                      padding:const EdgeInsetsDirectional.fromSTEB(16, 206, 16, 0),
                       child: TextFormField(
                         controller: userNameController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Usuario:',
-                         /* hintStyle:
+                          hintStyle:
+                              const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                                color: Color(0xFF57636C),
+                              ),
+                          /*
+                          Sólo faltaría implementar font family
                           FlutterFlowTheme.of(context).bodyText2.override(
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
@@ -136,36 +146,44 @@ class _LoginWidgetState extends State<LoginWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
+                        style: Theme.of(context).textTheme.bodyText1,
+
+                        /*style:TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xFF14181B),
+                          fontStyle: GoogleFonts.lato(fontStyle: FontStyle.normal),
+                        ),*/
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Outfit',
                           color: Color(0xFF14181B),
@@ -182,7 +200,14 @@ class _LoginWidgetState extends State<LoginWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Contraseña:',
-                          /*hintStyle:
+                          hintStyle:
+                            const TextStyle(
+                                fontStyle: FontStyle.normal,
+                                fontSize: 14,
+                                fontFamily: 'Outfit',
+                                color: Color(0xFF57636C),
+                            ),
+                          /*
                           FlutterFlowTheme.of(context).bodyText2.override(
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
@@ -231,9 +256,11 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                   ],
                 ),
-                /*Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: FFButtonWidget(
+                  child: (
+
+                  /*FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
                     },
@@ -255,8 +282,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                         width: 1,
                       ),
                     ),
-                  ),
-                ),*/
+                  ),*/
+                ),
               ],
             ),
           ),

@@ -135,7 +135,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                               'assets/images/emptyState@2x.png',
                             ).image,
                           ),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 6,
                               color: Color(0x3A000000),
@@ -145,7 +145,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+                          padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(120),
                             child: Image.asset(
@@ -165,8 +165,14 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Título:',
-                          /*hintStyle:
-                          FlutterFlowTheme.of(context).bodyText2.override(         *//*Sustituir por otra clase de estilos*//*
+                          hintStyle:
+                          const TextStyle(
+                            fontStyle: FontStyle.normal,
+                            fontSize: 14,
+                            fontFamily: 'Outfit',
+                            color: Color(0xFF57636C),
+                          ),
+                          /*FlutterFlowTheme.of(context).bodyText2.override(         *//* LISTO : Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
                             color: Color(0xFF57636C),
                             fontSize: 14,
