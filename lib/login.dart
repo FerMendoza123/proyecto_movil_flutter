@@ -2,6 +2,7 @@
 ///import '../flutter_flow/flutter_flow_theme.dart';
 ///import '../flutter_flow/flutter_flow_util.dart';
 ///import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:book_catalogue_crud/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:book_catalogue_crud/main.dart';
@@ -231,9 +232,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                     ),
                   ],
                 ),
-                /*Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: FFButtonWidget(
+                  child: CustomButton(
+                    width: 270,
+                    height: 50,
+                    text: 'Iniciar sesión',
+                    color: Color(0xFF4B39EF),
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    elevation: 3)
+                  /*FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');
                     },
@@ -255,8 +264,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                         width: 1,
                       ),
                     ),
-                  ),
-                ),*/
+                  ),*/
+                ),
               ],
             ),
           ),
