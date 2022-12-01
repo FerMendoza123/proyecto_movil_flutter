@@ -4,37 +4,42 @@
 ///import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:book_catalogue_crud/pages/widgets/customButton.dart';
 import 'package:book_catalogue_crud/pages/widgets/customTextFormField.dart';
+import 'package:book_catalogue_crud/services/usersService.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:book_catalogue_crud/main.dart';
 
-class LoginWidget extends StatefulWidget {
-  const LoginWidget({Key? key}) : super(key: key);
+class UserFormWidget extends StatefulWidget {
+  final bool register;
+  const UserFormWidget({
+    Key? key,
+    required this.register,
+  }) : super(key: key);
 
   @override
-  _LoginWidgetState createState() => _LoginWidgetState();
+  _UserFormWidgetState createState() => _UserFormWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
-  TextEditingController? emailAddressController;
+class _UserFormWidgetState extends State<UserFormWidget> {
+  TextEditingController? userEmailAddressController;
   TextEditingController? userNameController;
-  TextEditingController? passwordController;
+  TextEditingController? userPasswordController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController();
+    userEmailAddressController = TextEditingController();
     userNameController = TextEditingController();
-    passwordController = TextEditingController();
+    userPasswordController = TextEditingController();
   }
 
   @override
   void dispose() {
-    emailAddressController?.dispose();
+    userEmailAddressController?.dispose();
     userNameController?.dispose();
-    passwordController?.dispose();
+    userPasswordController?.dispose();
     super.dispose();
   }
 
@@ -47,12 +52,75 @@ class _LoginWidgetState extends State<LoginWidget> {
     );
     final passwordField = CustomTextFormField(
         label: "Contraseña",
-        controller: passwordController as TextEditingController,
+        controller: userPasswordController as TextEditingController,
     );
     final userEmailField = CustomTextFormField(
         label: "Email",
-        controller: emailAddressController as TextEditingController
+        controller: userEmailAddressController as TextEditingController
     );
+    final registerButton = CustomButton(
+      width: 270,
+      height: 50,
+      text: 'Registrar',
+      color: Color(0xFF4B39EF),
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+      elevation: 3,
+      onPressed: () async {
+      if (formKey.currentState!.validate()) {
+        var response = await UserService.addUser(
+            email: userEmailAddressController?.text as String,
+            name: userNameController?.text as String,
+            password: userPasswordController?.text as String);
+        if (response.code != 200) {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Text(response.message.toString()),
+                );
+              });
+        } else {
+          showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Text(response.message.toString()),
+                );
+              });
+        }
+      }
+    },
+    );
+    final loginButton = CustomButton(
+      width: 270,
+      height: 50,
+      text: 'Iniciar sesión',
+      color: Color(0xFF4B39EF),
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+      elevation: 3,
+      onPressed: (){},
+    );
+    final createAccountButton = CustomButton(
+      width: 270,
+      height: 50,
+      text: 'Create Account',
+      color: Color(0xFF4B39EF),
+      fontSize: 18,
+      fontWeight: FontWeight.normal,
+      elevation: 3,
+      onPressed: () {
+        Navigator.pushAndRemoveUntil<dynamic>(
+          context,
+          MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) => UserFormWidget(register: true),
+          ),
+              (route) => true, //if you want to disable back feature set to false
+        );
+      },
+    );
+
 
 
     return Scaffold(
@@ -134,28 +202,44 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                     ),
+                    widget.register?
+                      Padding(
+                        padding:const EdgeInsetsDirectional.fromSTEB(16, 206, 16, 0),
+                        child: userNameField,
+                      )
+                    :
+                      Container()
+                    ,
                     Padding(
-                      padding:const EdgeInsetsDirectional.fromSTEB(16, 206, 16, 0),
-                      child: userNameField,
+                      padding: widget.register?
+                        EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0)
+                      :
+                        EdgeInsetsDirectional.fromSTEB(16, 206, 16, 0)
+                      ,
+                      child: userEmailField,
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: passwordField,
                     ),
+
                   ],
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
-                  child: CustomButton(
-                    width: 270,
-                    height: 50,
-                    text: 'Iniciar sesión',
-                    color: Color(0xFF4B39EF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                    elevation: 3,
-                  ),
-                ),
+                  child:
+                  widget.register?
+                    registerButton
+                  :
+                    Column(
+                      children: [
+                        createAccountButton,
+                        SizedBox(height: 10),
+                        loginButton,
+                      ],
+                    )
+                  ,
+                )
               ],
             ),
           ),

@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget{
   final double fontSize;
   final FontWeight fontWeight;
   final double elevation;
+  final void Function() onPressed;
 
   const CustomButton ({Key?key,
     required this.width,
@@ -18,6 +19,7 @@ class CustomButton extends StatelessWidget{
     required this.fontSize,
     required this.fontWeight,
     required this.elevation,
+    required this.onPressed
   }) : super(key: key);
 
 
@@ -31,7 +33,7 @@ class CustomButton extends StatelessWidget{
             elevation: elevation,
             primary: color,
           ),
-          onPressed: ()=>{},
+          onPressed: onPressed,
           child: Text(text,
             style: TextStyle(
               fontSize: fontSize,

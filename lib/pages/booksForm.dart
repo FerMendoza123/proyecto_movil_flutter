@@ -496,6 +496,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                     text: "Registrar",
                     fontSize: 18,
                     fontWeight: FontWeight.normal,
+                    onPressed: ()=>{},
                   ),/*FFButtonWidget(                                                     *//*Sustituir por otro widget de boton*//*
                     onPressed: () {                                                         //
                       print('Button pressed ...');                                          //
