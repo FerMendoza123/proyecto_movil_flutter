@@ -26,16 +26,35 @@ class UserService{
       response.message = "Sucessfully added to the database";
     }).catchError((e){
       response.code = 500;
-      response.code = e;
+      response.message = e;
     });
 
     return response;
   }
 
 
-  /*static Stream<QuerySnapshot> readUser() {
-    CollectionReference notesItemCollection = _Collection;
+  static Future<Response> logUser({
+    required String email,
+  }) async{
+    Response response = Response();
 
-    return notesItemCollection.snapshots().;
-  }*/
+
+    var result = await _Collection.where('email', isEqualTo: email).get().then(
+          (value){
+            if(value.size>0){
+              response.code=200;
+              response.message="User Found";
+            } else {
+              response.code=404;
+              response.message="User nor Found";
+            }
+          },
+          onError: (e){
+            response.code = 500;
+            response.message = e;
+          }
+    );
+
+    return response;
+  }
 }

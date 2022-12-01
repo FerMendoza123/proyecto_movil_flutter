@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:book_catalogue_crud/main.dart';
 
+import 'booksForm.dart';
+
 class UserFormWidget extends StatefulWidget {
   final bool register;
   const UserFormWidget({
@@ -100,7 +102,29 @@ class _UserFormWidgetState extends State<UserFormWidget> {
       fontSize: 18,
       fontWeight: FontWeight.normal,
       elevation: 3,
-      onPressed: (){},
+      onPressed: () async {
+        if (formKey.currentState!.validate()) {
+          var response = await UserService.logUser(
+              email: userEmailAddressController?.text as String);
+          if (response.code == 200) {
+            Navigator.pushAndRemoveUntil<dynamic>(
+              context,
+              MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => BooksFormWidget(),
+              ),
+                  (route) => false, //if you want to disable back feature set to false
+            );
+          } else {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Text(response.message.toString()),
+                  );
+                });
+          }
+        }
+      },
     );
     final createAccountButton = CustomButton(
       width: 270,
@@ -110,7 +134,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
       fontSize: 18,
       fontWeight: FontWeight.normal,
       elevation: 3,
-      onPressed: () {
+      onPressed: () async{
         Navigator.pushAndRemoveUntil<dynamic>(
           context,
           MaterialPageRoute<dynamic>(

@@ -3,14 +3,14 @@ import 'package:book_catalogue_crud/pages/widgets/dropDown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegistroWidget extends StatefulWidget {
-  const RegistroWidget({Key? key}) : super(key: key);
+class BooksFormWidget extends StatefulWidget {
+  const BooksFormWidget({Key? key}) : super(key: key);
 
   @override
-  _RegistroWidgetState createState() => _RegistroWidgetState();
+  _BooksFormWidgetState createState() => _BooksFormWidgetState();
 }
 
-class _RegistroWidgetState extends State<RegistroWidget> {
+class _BooksFormWidgetState extends State<BooksFormWidget> {
   String? teamSelectValue;
   TextEditingController? emailAddressController;
   TextEditingController? userNameController;
