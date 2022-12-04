@@ -35,6 +35,7 @@ class UserService{
 
   static Future<Response> logUser({
     required String email,
+    required String password,
   }) async{
     Response response = Response();
 
@@ -42,11 +43,19 @@ class UserService{
     var result = await _Collection.where('email', isEqualTo: email).get().then(
           (value){
             if(value.size>0){
-              response.code=200;
-              response.message="User Found";
+              var data = value.docs[0].data() as Map<String, dynamic>;
+              if(data["password"] == password ){
+                response.code = 200;
+                response.message = "UserFound";
+              }
+              else{
+                response.code = 401;
+                response.message = "Wrong Password";
+              }
+              //response.message="User Found";
             } else {
               response.code=404;
-              response.message="User nor Found";
+              response.message="User not Found";
             }
           },
           onError: (e){

@@ -105,7 +105,9 @@ class _UserFormWidgetState extends State<UserFormWidget> {
       onPressed: () async {
         if (formKey.currentState!.validate()) {
           var response = await UserService.logUser(
-              email: userEmailAddressController?.text as String);
+            email: userEmailAddressController?.text as String,
+            password: userPasswordController?.text as String,
+          );
           if (response.code == 200) {
             Navigator.pushAndRemoveUntil<dynamic>(
               context,
