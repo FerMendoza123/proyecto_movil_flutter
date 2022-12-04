@@ -1,6 +1,7 @@
 /*
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+ */
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -34,15 +35,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  SelectionArea(
+                  //SelectionArea
+                 Container(
                       child: Text(
                         'Book Catalogue',
                         textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Poppins',
                           color: Color(0xFFFBFBFB),
                           fontSize: 17,
-                        ),
+                        ),*/
                       )),
                 ],
               ),
@@ -101,11 +103,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: Color(0xFFFBFBFB),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Title',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                          /*style: FlutterFlowTheme.of(context)
+                                              .bodyText1,*/
                                         )),
                                   ),
                                 ),
@@ -118,16 +120,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Author: Name Ex.',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -140,16 +142,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Editorial: Name Editorial',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -162,16 +164,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Publication: Mexico (2018)',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -185,16 +187,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: Color(0xFFFBFBFB),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Genres: Comedy, Fantasy',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -252,11 +254,11 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: Color(0xFFFBFBFB),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Title',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                          /*style: FlutterFlowTheme.of(context)
+                                              .bodyText1,*/
                                         )),
                                   ),
                                 ),
@@ -269,16 +271,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Author: Name Ex.',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -291,16 +293,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Editorial: Name Editorial',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -313,16 +315,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     decoration: BoxDecoration(
                                       color: Color(0xFFFBFBFB),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Publication: Mexico (2018)',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -336,16 +338,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       color: Color(0xFFFBFBFB),
                                       borderRadius: BorderRadius.circular(5),
                                     ),
-                                    child: SelectionArea(
+                                    child: Container(
                                         child: Text(
                                           'Genres: Comedy, Fantasy',
-                                          style: FlutterFlowTheme.of(context)
+                                          /*style: FlutterFlowTheme.of(context)
                                               .bodyText1
                                               .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 10,
                                             fontWeight: FontWeight.normal,
-                                          ),
+                                          ),*/
                                         )),
                                   ),
                                 ),
@@ -371,5 +373,5 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     );
   }
 }
-*/
+
 
