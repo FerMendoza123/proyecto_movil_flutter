@@ -61,6 +61,28 @@ class BookService{
     return notesItemCollection.snapshots();
   }
 
+  static Future<Response> deleteBook({
+    required String docId,
+  })async{
+    Response response = Response();
+    DocumentReference documentReferencer =
+    _collection.doc(docId);
+
+    await documentReferencer
+        .delete()
+        .whenComplete((){
+      response.code = 200;
+      response.message = "Sucessfully Deleted Employee";
+    })
+        .catchError((e) {
+      response.code = 500;
+      response.message = e;
+    });
+
+    return response;
+  }
+
+
   /*static Future<Response> logUser({
     required String title,
   }) async{

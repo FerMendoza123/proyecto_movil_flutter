@@ -271,7 +271,20 @@ class _BooksListWidgettState extends State<BooksListWidget> {
                                         fontSize: 18,
                                         fontWeight: FontWeight.normal,
                                         elevation: 3,
-                                        onPressed: (){}
+                                        onPressed: () async{
+                                          var response =
+                                          await BookService.deleteBook(docId: e.id);
+                                          if (response.code != 200) {
+                                            showDialog(
+                                                context: context,
+                                                builder: (context) {
+                                                  return AlertDialog(
+                                                    content:
+                                                    Text(response.message.toString()),
+                                                  );
+                                                });
+                                          }
+                                        }
                                     ),
                                     SizedBox(width: 20),
                                     CustomButton(
