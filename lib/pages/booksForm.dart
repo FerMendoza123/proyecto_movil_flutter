@@ -1,8 +1,11 @@
 import 'package:book_catalogue_crud/pages/widgets/customButton.dart';
 import 'package:book_catalogue_crud/pages/widgets/customTextFormField.dart';
 import 'package:book_catalogue_crud/pages/widgets/dropDown.dart';
+import 'package:book_catalogue_crud/services/booksService.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'booksList.dart';
 
 class BooksFormWidget extends StatefulWidget {
   const BooksFormWidget({Key? key}) : super(key: key);
@@ -170,7 +173,39 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
       text: "Registrar",
       fontSize: 18,
       fontWeight: FontWeight.normal,
-      onPressed: ()=>{},
+      onPressed: () async {
+        if (formKey.currentState!.validate()) {
+          var response = await BookService.addBook(
+            countryOfPub: bookCountryOfPubController?.text as String,
+            coverPageURL: bookCoverPageURLController?.text as String,
+            editorial: bookEditorialController?.text as String,
+            firstName: bookFirstNameController?.text as String,
+            genre: bookGenresController?.text as String,
+            ISBN: bookISBNController?.text as String,
+            lastname: bookLastNameController?.text as String,
+            //originalLang: bookOriginalLangController?.text as String,
+            title: bookTitleController?.text as String,
+            //yearOfPub: bookYearOfPubController?.value as int,
+          );
+          if (response.code == 200) {
+            Navigator.pushAndRemoveUntil<dynamic>(
+              context,
+              MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => BooksListWidget(),
+              ),
+                  (route) => false, //if you want to disable back feature set to false
+            );
+          } else {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Text(response.message.toString()),
+                  );
+                });
+          }
+        }
+      },
     );
 
     return Scaffold(

@@ -8,33 +8,38 @@ final CollectionReference _collection = _firestore.collection('books');
 class BookService{
   static Future<Response> addBook({
     required String ISBN,
-    required List<String> author,
+    //required List<String> author,
     required String firstName,
     required String lastname,
     required String countryOfPub,
     required String coverPageURL,
     required String editorial,
-    required Matrix4 genres,
-    required String originalLang,
+    required String genre,
+    //required Matrix4 genres,
+    //required String originalLang,
     required String title,
-    required String yearOfPub,
+    //required int yearOfPub,
   })async{
     Response response = Response();
     DocumentReference documentReference = _collection.doc();
 
     Map<String, dynamic> data = <String, dynamic>{
       "ISBN":ISBN,
-      "author":author,
-      "firstName":firstName,
-      "lastName":lastname,
+      "author":{
+        "firstName":firstName,
+        "lastName":lastname,
+      },
       "countryOfPub":countryOfPub,
       "coverPageURL":coverPageURL,
       "editorial":editorial,
-      "genres":genres,
-      "originalLang":originalLang,
+      "genre":genre,
+      //"originalLang":originalLang,
       "title":title,
-      "yearOfPub":yearOfPub,
+      //"yearOfPub":yearOfPub,
     };
+
+    response.code=300;
+    response.message="Funciona";
 
     var result = await documentReference.set(
         data

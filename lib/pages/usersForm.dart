@@ -70,30 +70,30 @@ class _UserFormWidgetState extends State<UserFormWidget> {
       fontWeight: FontWeight.normal,
       elevation: 3,
       onPressed: () async {
-      if (formKey.currentState!.validate()) {
-        var response = await UserService.addUser(
-            email: userEmailAddressController?.text as String,
-            name: userNameController?.text as String,
-            password: userPasswordController?.text as String);
-        if (response.code != 200) {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(response.message.toString()),
-                );
-              });
-        } else {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(response.message.toString()),
-                );
-              });
+        if (formKey.currentState!.validate()) {
+          var response = await UserService.addUser(
+              email: userEmailAddressController?.text as String,
+              name: userNameController?.text as String,
+              password: userPasswordController?.text as String);
+          if (response.code == 200) {
+            Navigator.pushAndRemoveUntil<dynamic>(
+              context,
+              MaterialPageRoute<dynamic>(
+                builder: (BuildContext context) => UserFormWidget(register: false),
+              ),
+                  (route) => false, //if you want to disable back feature set to false
+            );
+          } else {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    content: Text(response.message.toString()),
+                  );
+                });
+          }
         }
-      }
-    },
+      },
     );
     final loginButton = CustomButton(
       width: 270,
