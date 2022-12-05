@@ -17,6 +17,7 @@ class DropDown extends StatefulWidget {
   final double borderRadius;
   final EdgeInsetsGeometry margin;
   final bool hidesUnderline;
+  final TextEditingController controller;
   //final Function onChange;
 
   const DropDown({Key?key,
@@ -32,6 +33,7 @@ class DropDown extends StatefulWidget {
     required this.borderRadius,
     required this.margin,
     required this.hidesUnderline,
+    required this.controller
   }) : super(key: key);
 
   @override
@@ -43,7 +45,10 @@ class _DropdownButtonExampleState extends State<DropDown> {
 
   @override
   void initState(){
-    dropDownValue = widget.options.first;
+    if(widget.controller.text != "")
+      dropDownValue = widget.controller.text;
+    else
+      dropDownValue = widget.options.first;
   }
   @override
   Widget build(BuildContext context){
@@ -57,6 +62,7 @@ class _DropdownButtonExampleState extends State<DropDown> {
           onChanged: (value){
             setState(() {
               dropDownValue = value as String;
+              widget.controller.text = dropDownValue;
             });
           },
           hint: Text(widget.hintText),

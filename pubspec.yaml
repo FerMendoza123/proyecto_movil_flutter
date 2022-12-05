@@ -64,6 +64,7 @@ flutter:
 
   # To add images to your application, add an images section, like this:
   assets:
+      - images/computer-science-g0484927a2_640.png
       - images/book-g1d3fa4f77_640.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

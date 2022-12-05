@@ -2,19 +2,48 @@ import 'package:book_catalogue_crud/pages/widgets/customButton.dart';
 import 'package:book_catalogue_crud/pages/widgets/customTextFormField.dart';
 import 'package:book_catalogue_crud/pages/widgets/dropDown.dart';
 import 'package:book_catalogue_crud/services/booksService.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'booksList.dart';
 
-class BooksFormWidget extends StatefulWidget {
-  const BooksFormWidget({Key? key}) : super(key: key);
+class BooksFormEditWidget extends StatefulWidget {
+  //final QueryDocumentSnapshot<Object> document;
+
+  final double ISBN ;
+  final String docId;
+  final String firstName;
+  final String lastName;
+  final String country;
+  final String URL;
+  final String editorial;
+  final String genre;
+  final String languaje;
+  final String title;
+  final int year;
+
+  const BooksFormEditWidget({
+    Key? key,
+    required this.firstName,
+    required this.URL,
+    required this.editorial,
+    required this.country,
+    required this.genre,
+    required this.ISBN,
+    required this.languaje,
+    required this.lastName,
+    required this.title,
+    required this.year,
+    required this.docId,
+  }) : super(key: key);
 
   @override
-  _BooksFormWidgetState createState() => _BooksFormWidgetState();
+  _BooksFormEditWidgetState createState() => _BooksFormEditWidgetState();
 }
 
-class _BooksFormWidgetState extends State<BooksFormWidget> {
+class _BooksFormEditWidgetState extends State<BooksFormEditWidget> {
   TextEditingController? bookISBNController;
   //TextEditingController? bookAuthorController;
   TextEditingController? bookFirstNameController;
@@ -27,6 +56,8 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
   TextEditingController? bookTitleController;
   TextEditingController? bookYearOfPubController;
 
+
+
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -34,7 +65,6 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
   void initState() {
     super.initState();
     bookISBNController = TextEditingController();
-    //bookAuthorController = TextEditingController();
     bookFirstNameController = TextEditingController();
     bookLastNameController = TextEditingController();
     bookCountryOfPubController = TextEditingController();
@@ -44,6 +74,20 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
     bookOriginalLangController = TextEditingController();
     bookTitleController = TextEditingController();
     bookYearOfPubController = TextEditingController();
+    //if(widget.document.data().toString().contains("ISBN")){
+      //bookISBNController?.text = widget.document["ISBN"].toString();
+    //}
+
+    bookYearOfPubController?.text = widget.year.toString();
+    bookOriginalLangController?.text = widget.languaje;
+    bookEditorialController?.text = widget.editorial;
+    bookCoverPageURLController?.text = widget.URL;
+    bookCountryOfPubController?.text = widget.country;
+    bookLastNameController?.text = widget.lastName;
+    bookFirstNameController?.text = widget.firstName;
+    bookISBNController?.text = widget.ISBN.toString();
+    bookTitleController?.text = widget.title;
+    bookGenreController?.text = widget.genre;
   }
 
   @override
@@ -166,17 +210,19 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
         controller: bookGenreController as TextEditingController,
     );
 
-    final registerButton = CustomButton(
+    final editButton = CustomButton(
       width: 270,
       height: 50,
       color: const Color(0xFF4B39EF),
       elevation: 3,
-      text: "Registrar",
+      text: "Guardar",
       fontSize: 18,
       fontWeight: FontWeight.normal,
       onPressed: () async {
         if (formKey.currentState!.validate()) {
-          var response = await BookService.addBook(
+          var response = await BookService.updateBook(
+            docId: widget.docId,
+            originalLang: bookOriginalLangController?.text as String,
             countryOfPub: bookCountryOfPubController?.text as String,
             coverPageURL: bookCoverPageURLController?.text as String,
             editorial: bookEditorialController?.text as String,
@@ -270,7 +316,7 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.asset(
-                              '',
+                              'imagemptyState@2x.png',
                             ).image,
                           ),
                           boxShadow: const [
@@ -286,11 +332,17 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(120),
-                            child: Image.asset(
-                              'images/book-g1d3fa4f77_640.png',
-                              width: 100,
+                            child:CachedNetworkImage(
+                              imageUrl: widget.URL,
                               height: 100,
-                              fit: BoxFit.cover,
+                              width: 100,
+                              placeholder: (context,url) => CircularProgressIndicator(),
+                              errorWidget: (context,url,error) => new Image.asset(
+                                "images/book-g1d3fa4f77_640.png",
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -383,13 +435,13 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                      child: bookGenreField,
+                      child: bookGenreField
                     ),
                   ],
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(100, 24, 100, 16),
-                  child: registerButton,
+                  child: editButton,
                 ),
               ],
             ),

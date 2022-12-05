@@ -7,7 +7,7 @@ final CollectionReference _collection = _firestore.collection('books');
 
 class BookService{
   static Future<Response> addBook({
-    required String ISBN,
+    required double ISBN,
     //required List<String> author,
     required String firstName,
     required String lastname,
@@ -38,9 +38,6 @@ class BookService{
       //"yearOfPub":yearOfPub,
     };
 
-    response.code=300;
-    response.message="Funciona";
-
     var result = await documentReference.set(
         data
     ).whenComplete(() {
@@ -59,6 +56,52 @@ class BookService{
         _collection;
 
     return notesItemCollection.snapshots();
+  }
+
+  static Future<Response> updateBook({
+    required double ISBN,
+    //required List<String> author,
+    required String firstName,
+    required String lastname,
+    required String countryOfPub,
+    required String coverPageURL,
+    required String editorial,
+    required String genre,
+    //required Matrix4 genres,
+    required String originalLang,
+    required String title,
+    required String docId,
+    //required int yearOfPub,
+  })async{
+    Response response = Response();
+    DocumentReference documentReference = _collection.doc(docId);
+
+    Map<String, dynamic> data = <String, dynamic>{
+      "ISBN":ISBN,
+      "author":{
+        "firstName":firstName,
+        "lastName":lastname,
+      },
+      "countryOfPub":countryOfPub,
+      "coverPageURL":coverPageURL,
+      "editorial":editorial,
+      "genre":genre,
+      //"originalLang":originalLang,
+      "title":title,
+      //"yearOfPub":yearOfPub,
+    };
+
+    await documentReference.update(
+        data
+    ).whenComplete(() {
+      response.code = 200;
+      response.message = "Sucessfully added to the database";
+    }).catchError((e){
+      response.code = 500;
+      response.message = e;
+    });
+
+    return response;
   }
 
   static Future<Response> deleteBook({

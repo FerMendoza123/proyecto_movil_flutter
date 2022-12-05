@@ -220,7 +220,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(120),
                             child: Image.asset(
-                              'images/images/libros.png',
+                              'images/computer-science-g0484927a2_640.png',
                               width: 100,
                               height: 100,
                               fit: BoxFit.cover,

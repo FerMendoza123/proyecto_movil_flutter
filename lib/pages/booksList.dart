@@ -2,6 +2,8 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
  */
+import 'package:book_catalogue_crud/pages/booksForm.dart';
+import 'package:book_catalogue_crud/pages/booksFormEdit.dart';
 import 'package:book_catalogue_crud/pages/widgets/customButton.dart';
 import 'package:book_catalogue_crud/services/booksService.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -55,7 +57,24 @@ class _BooksListWidgettState extends State<BooksListWidget> {
               ),
             ),
           ),
-          actions: [],
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.my_library_add,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pushAndRemoveUntil<dynamic>(
+                  context,
+                  MaterialPageRoute<dynamic>(
+                    builder: (BuildContext context) => BooksFormWidget(),
+                  ),
+                      (route) =>
+                  true, //if you want to disable back feature set to false
+                );
+              },
+            )
+          ],
           centerTitle: false,
           elevation: 2,
         ),
@@ -90,6 +109,8 @@ class _BooksListWidgettState extends State<BooksListWidget> {
                                   children: [
                                     CachedNetworkImage(
                                       imageUrl: e["coverPageURL"],
+                                      height: 100,
+                                      width: 100,
                                       placeholder: (context,url) => CircularProgressIndicator(),
                                       errorWidget: (context,url,error) => new Image.asset(
                                         "images/book-g1d3fa4f77_640.png",
@@ -125,6 +146,7 @@ class _BooksListWidgettState extends State<BooksListWidget> {
                                                         :
                                                     ""
                                                     ,
+                                                    style: TextStyle(fontWeight: FontWeight.bold),
                                                     /*style: FlutterFlowTheme.of(context)
                                             .bodyText1,*/
                                                   )),
@@ -295,7 +317,27 @@ class _BooksListWidgettState extends State<BooksListWidget> {
                                         fontSize: 18,
                                         fontWeight: FontWeight.normal,
                                         elevation: 3,
-                                        onPressed: (){}
+                                        onPressed: (){
+                                          Navigator.pushAndRemoveUntil<dynamic>(
+                                            context,
+                                            MaterialPageRoute<dynamic>(
+                                              builder: (BuildContext context) => BooksFormEditWidget(
+                                                docId: e.id,
+                                                title: e.data().toString().contains("title")? e["title"] : "",
+                                                year: e.data().toString().contains("yearOfPub")? e["yearOfPub"] : 0,
+                                                country: e.data().toString().contains("countryOfPub")? e["countryOfPub"] : "",
+                                                editorial: e.data().toString().contains("editorial")? e["editorial"] : "",
+                                                firstName: e.data().toString().contains("firstName")? e["author"]["firstName"] : "",
+                                                genre: e.data().toString().contains("genre")? e["genre"] : "",
+                                                ISBN: e.data().toString().contains("ISBN")? e["ISBN"] : 0,
+                                                languaje: e.data().toString().contains("originalLang")? e["originalLang"] : "",
+                                                lastName: e.data().toString().contains("lastName")? e["author"]["lastName"] : "",
+                                                URL: e.data().toString().contains("coverPageURL")? e["coverPageURL"] : "",
+                                              ),
+                                            ),
+                                                (route) => true, //if you want to disable back feature set to false
+                                          );
+                                        }
                                     ),
                                   ],
                                 )
@@ -305,626 +347,12 @@ class _BooksListWidgettState extends State<BooksListWidget> {
                         ),
                       );
                     }).toList(),
-                    /*[
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
-                        child: Container(
-                          width: double.infinity,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFBFBFB),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.network(
-                                  'https://picsum.photos/seed/859/600',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                                Container(
-                                  width: 182,
-                                  height: 102,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFFBFBFB),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Title',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1,*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Author: Name Ex.',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Editorial: Name Editorial',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Publication: Mexico (2018)',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Genres: Comedy, Fantasy',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 1,
-                        thickness: 1,
-                        indent: 30,
-                        endIndent: 30,
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
-                        child: Container(
-                          width: double.infinity,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFBFBFB),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Image.network(
-                                  'https://picsum.photos/seed/859/600',
-                                  width: 100,
-                                  height: 100,
-                                  fit: BoxFit.cover,
-                                ),
-                                Container(
-                                  width: 182,
-                                  height: 102,
-                                  decoration: BoxDecoration(
-                                    color: Color(0xFFFBFBFB),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Title',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1,*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Author: Name Ex.',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Editorial: Name Editorial',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Publication: Mexico (2018)',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 5, 0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFBFBFB),
-                                            borderRadius: BorderRadius.circular(5),
-                                          ),
-                                          child: Container(
-                                              child: Text(
-                                                'Genres: Comedy, Fantasy',
-                                                /*style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 10,
-                                          fontWeight: FontWeight.normal,
-                                        ),*/
-                                              )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        height: 1,
-                        thickness: 1,
-                        indent: 30,
-                        endIndent: 30,
-                      ),
-                    ],*/
                   ),
                 );
               }
               return Container();
             }
           ),
-          /*SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
-                  child: Container(
-                    width: double.infinity,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFBFBFB),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.network(
-                            'https://picsum.photos/seed/859/600',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                          Container(
-                            width: 182,
-                            height: 102,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFBFBFB),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Title',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1,*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Author: Name Ex.',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Editorial: Name Editorial',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Publication: Mexico (2018)',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Genres: Comedy, Fantasy',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  height: 1,
-                  thickness: 1,
-                  indent: 30,
-                  endIndent: 30,
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8, 5, 8, 5),
-                  child: Container(
-                    width: double.infinity,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFBFBFB),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.network(
-                            'https://picsum.photos/seed/859/600',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
-                          Container(
-                            width: 182,
-                            height: 102,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFBFBFB),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Title',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1,*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Author: Name Ex.',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Editorial: Name Editorial',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Publication: Mexico (2018)',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 5, 0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFFBFBFB),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Container(
-                                        child: Text(
-                                          'Genres: Comedy, Fantasy',
-                                          /*style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.normal,
-                                          ),*/
-                                        )),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  height: 1,
-                  thickness: 1,
-                  indent: 30,
-                  endIndent: 30,
-                ),
-              ],
-            ),
-          ),*/
         ),
       ),
     );
