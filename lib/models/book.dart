@@ -8,5 +8,5 @@ class Book{
   String? language;
   //String? genre;
 
-  Book({this.bid,this.title,this.author,this.ISBN,this.editorial,this.year,this.language,this.genre});
+  Book({this.bid,this.title,this.author,this.ISBN,this.editorial,this.year,this.language,/*this.genre*/});
 }

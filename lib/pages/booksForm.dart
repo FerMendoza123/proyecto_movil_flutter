@@ -11,35 +11,50 @@ class BooksFormWidget extends StatefulWidget {
 }
 
 class _BooksFormWidgetState extends State<BooksFormWidget> {
-  String? teamSelectValue;
-  TextEditingController? emailAddressController;
-  TextEditingController? userNameController;
-  TextEditingController? titleRoleController1;
-  TextEditingController? titleRoleController2;
-  TextEditingController? titleRoleController3;
-  TextEditingController? titleRoleController4;
+  TextEditingController? bookISBNController;
+  TextEditingController? bookAuthorController;
+  TextEditingController? bookFirstNameController;
+  TextEditingController? bookLastNameController;
+  TextEditingController? bookCountryOfPubController;
+  TextEditingController? bookCoverPageURLController;
+  TextEditingController? bookEditorialController;
+  TextEditingController? bookGenresController;
+  TextEditingController? bookOriginalLangController;
+  TextEditingController? bookTitleController;
+  TextEditingController? bookYearOfPubController;
+
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    emailAddressController = TextEditingController();
-    userNameController = TextEditingController();
-    titleRoleController1 = TextEditingController();
-    titleRoleController2 = TextEditingController();
-    titleRoleController3 = TextEditingController();
-    titleRoleController4 = TextEditingController();
+    bookISBNController = TextEditingController();
+    bookAuthorController = TextEditingController();
+    bookFirstNameController = TextEditingController();
+    bookLastNameController = TextEditingController();
+    bookCountryOfPubController = TextEditingController();
+    bookCoverPageURLController = TextEditingController();
+    bookEditorialController = TextEditingController();
+    bookGenresController = TextEditingController();
+    bookOriginalLangController = TextEditingController();
+    bookTitleController = TextEditingController();
+    bookYearOfPubController = TextEditingController();
   }
 
   @override
   void dispose() {
-    emailAddressController?.dispose();
-    userNameController?.dispose();
-    titleRoleController1?.dispose();
-    titleRoleController2?.dispose();
-    titleRoleController3?.dispose();
-    titleRoleController4?.dispose();
+    bookISBNController?.dispose();
+    bookAuthorController?.dispose();
+    bookFirstNameController?.dispose();
+    bookLastNameController?.dispose();
+    bookCountryOfPubController?.dispose();
+    bookCoverPageURLController?.dispose();
+    bookEditorialController?.dispose();
+    bookGenresController?.dispose();
+    bookOriginalLangController?.dispose();
+    bookTitleController?.dispose();
+    bookYearOfPubController?.dispose();
     super.dispose();
   }
 
@@ -51,7 +66,7 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        title: Text(
+        title: const Text(
           'Online Library',
           /*Sustituir por otra clase de estilos*/
           /*style:
@@ -97,12 +112,12 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                       child: Container(
                         width: 120,
                         height: 120,
                         decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
+                          color: const Color(0xFFF1F4F8),
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.asset(
@@ -133,12 +148,67 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: userNameController,
+                        controller: bookTitleController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Título:',
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(                  *//*Sustituir por otra clase de estilos*//*
+                            fontFamily: 'Outfit',
+                            color: Color(0xFF57636C),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),*/
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFF1F4F8),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFF1F4F8),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          contentPadding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                        ),
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(                   *//*Sustituir por otra clase de estilos*//*
+                          fontFamily: 'Outfit',
+                          color: Color(0xFF14181B),
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),*/
+                        textAlign: TextAlign.start,
+                        keyboardType: TextInputType.datetime,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      child: TextFormField(
+                        controller: bookISBNController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'ISBN:',
                           hintStyle:
                           const TextStyle(
                             fontStyle: FontStyle.normal,
@@ -153,35 +223,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(      *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -193,9 +263,9 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: emailAddressController,
+                        controller: bookAuthorController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Autor:',
@@ -207,35 +277,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(              *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -247,12 +317,12 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: titleRoleController1,
+                        controller: bookFirstNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'ISBN:',
+                          labelText: 'Primer nombre:',
                           /*hintStyle:
                           FlutterFlowTheme.of(context).bodyText2.override(               *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
@@ -261,35 +331,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(                  *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -301,12 +371,12 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: titleRoleController2,
+                        controller: bookLastNameController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Editorial:',
+                          labelText: 'Apellido:',
                           /*hintStyle:
                           FlutterFlowTheme.of(context).bodyText2.override(                 *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
@@ -315,35 +385,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(               *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -355,12 +425,12 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: titleRoleController3,
+                        controller: bookCountryOfPubController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Año:',
+                          labelText: 'País:',
                           /*hintStyle:
                           FlutterFlowTheme.of(context).bodyText2.override(                *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
@@ -369,35 +439,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(                  *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -410,12 +480,12 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
                       child: TextFormField(
-                        controller: titleRoleController4,
+                        controller: bookCoverPageURLController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Idioma:',
+                          labelText: 'URL:',
                           /*hintStyle:
                           FlutterFlowTheme.of(context).bodyText2.override(                  *//*Sustituir por otra clase de estilos*//*
                             fontFamily: 'Outfit',
@@ -424,35 +494,35 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                             fontWeight: FontWeight.normal,
                           ),*/
                           enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0xFFF1F4F8),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           contentPadding:
-                          EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                         ),
                         /*style: FlutterFlowTheme.of(context).bodyText1.override(                   *//*Sustituir por otra clase de estilos*//*
                           fontFamily: 'Outfit',
@@ -465,6 +535,61 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                       ),
                     ),
                     Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
+                      child: TextFormField(
+                        controller: bookEditorialController,
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Editorial:',
+                          /*hintStyle:
+                          FlutterFlowTheme.of(context).bodyText2.override(                  *//*Sustituir por otra clase de estilos*//*
+                            fontFamily: 'Outfit',
+                            color: Color(0xFF57636C),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),*/
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFF1F4F8),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0xFFF1F4F8),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Color(0x00000000),
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          contentPadding:
+                          const EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                        ),
+                        /*style: FlutterFlowTheme.of(context).bodyText1.override(                   *//*Sustituir por otra clase de estilos*//*
+                          fontFamily: 'Outfit',
+                          color: Color(0xFF14181B),
+                          fontSize: 14,
+                          fontWeight: FontWeight.normal,
+                        ),*/
+                        textAlign: TextAlign.start,
+                        keyboardType: TextInputType.datetime,
+                      ),
+                    ),
+                    const Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
                       child: DropDown(
                           options: ['Científico', 'Ciencia Ficción', 'Romance'],
@@ -487,11 +612,11 @@ class _BooksFormWidgetState extends State<BooksFormWidget> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
                   child: CustomButton(
                     width: 270,
                     height: 50,
-                    color: Color(0xFF4B39EF),
+                    color: const Color(0xFF4B39EF),
                     elevation: 3,
                     text: "Registrar",
                     fontSize: 18,
