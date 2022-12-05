@@ -256,7 +256,9 @@ class _UserFormWidgetState extends State<UserFormWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 16),
                   child:
                   widget.register?
-                    registerButton
+                      Column(
+                        children: [registerButton],
+                      )
                   :
                     Column(
                       children: [
