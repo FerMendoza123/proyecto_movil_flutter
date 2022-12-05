@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:book_catalogue_crud/main.dart';
 
 import 'booksForm.dart';
+import 'booksList.dart';
 
 class UserFormWidget extends StatefulWidget {
   final bool register;
@@ -112,7 +113,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
             Navigator.pushAndRemoveUntil<dynamic>(
               context,
               MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => BooksFormWidget(),
+                builder: (BuildContext context) => BooksListWidget(),
               ),
                   (route) => false, //if you want to disable back feature set to false
             );

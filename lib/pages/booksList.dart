@@ -2,18 +2,21 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
  */
+import 'package:book_catalogue_crud/services/booksService.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+class BooksListWidget extends StatefulWidget {
+  const BooksListWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _BooksListWidgettState createState() => _BooksListWidgettState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _BooksListWidgettState extends State<BooksListWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final Stream<QuerySnapshot> collectionReference = BookService.readBooks();
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,12 @@
 class Book{
   String? bid;
-  String? tile;
-  String? autor;
-  String? isbn;
+  String? title;
+  String? author;
+  String? ISBN;
   String? editorial;
   int? year;
   String? language;
-  List<String>? genre;
+  //String? genre;
 
-  Book({this.bid,this.tile,this.autor,this.isbn,this.editorial,this.year,this.language,this.genre});
+  Book({this.bid,this.title,this.author,this.ISBN,this.editorial,this.year,this.language,this.genre});
 }
