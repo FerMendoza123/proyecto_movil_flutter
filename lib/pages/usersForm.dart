@@ -203,7 +203,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: Image.asset(
-                              'assets/images/emptyState@2x.png',
+                              'images/images/emptyState@2x.png',
                             ).image,
                           ),
                           boxShadow: const [
@@ -220,7 +220,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(120),
                             child: Image.asset(
-                              'assets/images/libros.png',
+                              'images/images/libros.png',
                               width: 100,
                               height: 100,
                               fit: BoxFit.cover,

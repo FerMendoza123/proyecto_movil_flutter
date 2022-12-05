@@ -1,4 +1,6 @@
 
+import 'package:book_catalogue_crud/pages/booksForm.dart';
+import 'package:book_catalogue_crud/pages/booksList.dart';
 import 'package:book_catalogue_crud/pages/usersForm.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget{
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const UserFormWidget(register: false),
+      home: BooksListWidget()//const UserFormWidget(register: false),
     );
   }
 }
