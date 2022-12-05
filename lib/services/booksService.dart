@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../models/response.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference collection = _firestore.collection('books');
+final CollectionReference _collection = _firestore.collection('books');
 
 class BookService{
   static Future<Response> addBook({
@@ -20,7 +20,7 @@ class BookService{
     required String yearOfPub,
   })async{
     Response response = Response();
-    DocumentReference documentReference = collection.doc();
+    DocumentReference documentReference = _collection.doc();
 
     Map<String, dynamic> data = <String, dynamic>{
       "ISBN":ISBN,
@@ -49,6 +49,12 @@ class BookService{
     return response;
   }
 
+  static Stream<QuerySnapshot> readBooks() {
+    CollectionReference notesItemCollection =
+        _collection;
+
+    return notesItemCollection.snapshots();
+  }
 
   /*static Future<Response> logUser({
     required String title,
